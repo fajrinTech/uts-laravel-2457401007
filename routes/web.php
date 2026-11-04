@@ -1,8 +1,7 @@
 <?php
 
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
-Route::get('/menus', function () {
-    return 'Daftar Menu';
-})->name('menus.index');
+Route::resource('menus', MenuController::class);
