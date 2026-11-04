@@ -22,24 +22,24 @@
                 @endif
 
                 @if ($menu->is_best_seller)
-                    <span class="pill-badge pill-bestseller">⭐ Rekomendasi Chef / Favorit</span>
+                    <span class="pill-badge pill-bestseller">⭐ Rekomendasi Favorit</span>
                 @endif
             </div>
-            <h1 class="card-title" style="font-size: 1.7rem;">{{ $menu->name }}</h1>
+            <h1 class="card-title" style="font-size: 1.65rem;">{{ $menu->name }}</h1>
         </div>
         <a href="{{ route('menus.index') }}" class="btn btn-outline btn-sm">&larr; Kembali ke Daftar</a>
     </div>
 
-    <div style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1px solid #fde68a; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="background-color: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between;">
         <div>
-            <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #92400e; font-weight: 600;">Harga Satuan</div>
-            <div style="font-size: 1.85rem; font-weight: 800; color: #b45309;">
+            <div style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; color: #92400e; font-weight: 600;">Harga Satuan</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: #b45309;">
                 Rp {{ number_format($menu->price, 0, ',', '.') }}
             </div>
         </div>
         <div style="text-align: right;">
-            <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #92400e; font-weight: 600;">Estimasi Penyajian</div>
-            <div style="font-size: 1.25rem; font-weight: 700; color: #78350f;">
+            <div style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; color: #92400e; font-weight: 600;">Estimasi Penyajian</div>
+            <div style="font-size: 1.2rem; font-weight: 700; color: #78350f;">
                 ⏱️ {{ $menu->cook_minutes }} Menit
             </div>
         </div>

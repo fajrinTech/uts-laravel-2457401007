@@ -6,11 +6,12 @@
     <title>@yield('title', 'Resto Rasa Nusantara') - UTS Web Development</title>
     <style>
         :root {
-            --bg-page: #faf6f0;
+            --bg-page: #fbfaf8;
             --bg-card: #ffffff;
             --primary: #c2410c;
             --primary-hover: #9a3412;
             --amber-accent: #d97706;
+            --amber-hover: #b45309;
             --amber-light: #fef3c7;
             --text-main: #292524;
             --text-muted: #78716c;
@@ -41,10 +42,10 @@
         }
 
         .navbar {
-            background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
+            background-color: #1c1917;
             color: #ffffff;
             padding: 16px 24px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid #292524;
         }
 
         .navbar-inner {
@@ -62,7 +63,7 @@
             color: #ffffff;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.15rem;
+            font-size: 1.12rem;
             letter-spacing: -0.01em;
         }
 
@@ -72,29 +73,29 @@
             font-size: 0.75rem;
             font-weight: 600;
             padding: 3px 8px;
-            border-radius: 9999px;
+            border-radius: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
         }
 
         .nav-links {
             display: flex;
-            gap: 12px;
+            gap: 10px;
         }
 
         .nav-link {
             color: #d6d3d1;
             text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.95rem;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 0.92rem;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.15s;
         }
 
         .nav-link:hover {
             color: #ffffff;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #292524;
         }
 
         .nav-link.active {
@@ -107,16 +108,16 @@
             flex: 1;
             max-width: 1080px;
             width: 100%;
-            margin: 32px auto;
+            margin: 30px auto;
             padding: 0 20px;
         }
 
         .bistro-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-soft);
-            border-radius: 14px;
-            box-shadow: 0 4px 20px -2px rgba(180, 83, 9, 0.06);
-            padding: 28px;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            padding: 26px;
             margin-bottom: 24px;
         }
 
@@ -124,13 +125,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid #f5f5f4;
+            margin-bottom: 22px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #f0eeee;
         }
 
         .card-title {
-            font-size: 1.45rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: #1c1917;
             display: flex;
@@ -143,36 +144,40 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-size: 0.92rem;
+            padding: 9px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             text-decoration: none;
-            border: none;
-            transition: all 0.18s ease-in-out;
+            border: 1px solid transparent;
+            transition: all 0.15s;
         }
 
         .btn-primary {
             background-color: var(--primary);
             color: #ffffff;
+            border-color: var(--primary);
         }
 
         .btn-primary:hover {
             background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
         }
 
         .btn-amber {
             background-color: var(--amber-accent);
             color: #ffffff;
+            border-color: var(--amber-accent);
         }
 
         .btn-amber:hover {
-            background-color: #b45309;
+            background-color: var(--amber-hover);
+            border-color: var(--amber-hover);
         }
 
         .btn-outline {
-            background-color: transparent;
+            background-color: #ffffff;
             border: 1px solid #d6d3d1;
             color: #44403c;
         }
@@ -183,13 +188,13 @@
         }
 
         .btn-sm {
-            padding: 6px 12px;
+            padding: 5px 10px;
             font-size: 0.82rem;
-            border-radius: 6px;
+            border-radius: 5px;
         }
 
         .btn-danger-outline {
-            background-color: transparent;
+            background-color: #ffffff;
             border: 1px solid #fca5a5;
             color: #dc2626;
         }
@@ -202,8 +207,8 @@
             background-color: var(--success-bg);
             border: 1px solid var(--success-border);
             color: var(--success-text);
-            padding: 14px 18px;
-            border-radius: 10px;
+            padding: 12px 16px;
+            border-radius: 8px;
             margin-bottom: 20px;
             font-weight: 500;
             display: flex;
@@ -215,11 +220,10 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            padding: 4px 10px;
-            border-radius: 9999px;
+            padding: 3px 9px;
+            border-radius: 5px;
             font-size: 0.78rem;
             font-weight: 600;
-            letter-spacing: 0.02em;
         }
 
         .pill-makanan {
@@ -253,39 +257,38 @@
         }
 
         .pill-bestseller {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: #ffffff;
-            box-shadow: 0 1px 3px rgba(217, 119, 6, 0.3);
+            background-color: #fffbeb;
+            color: #92400e;
+            border: 1px solid #fde68a;
         }
 
         .bistro-table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin-top: 8px;
+            border-collapse: collapse;
+            margin-top: 6px;
         }
 
         .bistro-table th {
-            background-color: #f5f5f4;
-            color: #44403c;
+            background-color: #f9f8f6;
+            color: #57534e;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             text-transform: uppercase;
-            letter-spacing: 0.04em;
-            padding: 12px 14px;
+            letter-spacing: 0.03em;
+            padding: 11px 12px;
             text-align: left;
             border-bottom: 2px solid var(--border-soft);
         }
 
         .bistro-table td {
-            padding: 14px;
+            padding: 12px;
             border-bottom: 1px solid var(--border-soft);
-            font-size: 0.93rem;
+            font-size: 0.92rem;
             vertical-align: middle;
         }
 
         .bistro-table tbody tr:hover {
-            background-color: #fafaf9;
+            background-color: #faf9f7;
         }
 
         .action-cell {
@@ -302,16 +305,16 @@
             display: block;
             margin-bottom: 6px;
             font-weight: 600;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             color: #292524;
         }
 
         .form-control {
             width: 100%;
-            padding: 10px 14px;
+            padding: 9px 12px;
             border: 1px solid #d6d3d1;
-            border-radius: 8px;
-            font-size: 0.93rem;
+            border-radius: 6px;
+            font-size: 0.92rem;
             background-color: #ffffff;
             color: #1c1917;
             transition: all 0.15s;
@@ -342,25 +345,25 @@
             cursor: pointer;
             user-select: none;
             font-weight: 500;
-            font-size: 0.93rem;
+            font-size: 0.92rem;
         }
 
         .checkbox-label input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
+            width: 17px;
+            height: 17px;
             accent-color: var(--primary);
             cursor: pointer;
         }
 
         .empty-state {
             text-align: center;
-            padding: 48px 24px;
+            padding: 44px 20px;
             color: var(--text-muted);
         }
 
         .empty-state-icon {
-            font-size: 3rem;
-            margin-bottom: 12px;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
             opacity: 0.7;
         }
 
