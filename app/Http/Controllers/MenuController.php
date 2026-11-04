@@ -46,4 +46,54 @@ class MenuController extends Controller
         return redirect()->route('menus.index')
             ->with('success', 'Menu hidangan berhasil ditambahkan!');
     }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Menu $menu)
+    {
+        return view('menus.show', compact('menu'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Menu $menu)
+    {
+        $categories = ['Makanan Utama', 'Minuman', 'Penutup'];
+        return view('menus.edit', compact('menu', 'categories'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Menu $menu)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'category' => 'required|in:Makanan Utama,Minuman,Penutup',
+            'price' => 'required|numeric|min:0',
+            'cook_minutes' => 'required|integer|min:1',
+            'added_at' => 'required|date',
+            'description' => 'nullable|string',
+        ]);
+
+        $validated['is_spicy'] = $request->boolean('is_spicy');
+
+        $menu->update($validated);
+
+        return redirect()->route('menus.index')
+            ->with('success', 'Menu hidangan berhasil diperbarui!');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Menu $menu)
+    {
+        $menu->delete();
+
+        return redirect()->route('menus.index')
+            ->with('success', 'Menu hidangan berhasil dihapus!');
+    }
 }
