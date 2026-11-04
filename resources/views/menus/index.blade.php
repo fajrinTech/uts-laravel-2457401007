@@ -33,14 +33,14 @@
             <table class="bistro-table">
                 <thead>
                     <tr>
-                        <th style="width: 50px;">No</th>
+                        <th style="width: 45px;">No</th>
                         <th>Nama Menu</th>
                         <th>Kategori</th>
                         <th>Harga</th>
                         <th>Waktu Masak</th>
                         <th>Tanggal Masuk</th>
-                        <th>Rasa</th>
-                        <th style="text-align: center; width: 210px;">Aksi</th>
+                        <th>Cita Rasa</th>
+                        <th style="text-align: center; width: 200px;">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,7 +48,12 @@
                         <tr>
                             <td>{{ $index + 1 }}</td>
                             <td>
-                                <strong>{{ $menu->name }}</strong>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <strong>{{ $menu->name }}</strong>
+                                    @if ($menu->is_best_seller)
+                                        <span class="pill-badge pill-bestseller">⭐ Favorit</span>
+                                    @endif
+                                </div>
                             </td>
                             <td>
                                 @if ($menu->category === 'Makanan Utama')
@@ -62,13 +67,13 @@
                             <td>
                                 <strong style="color: var(--primary);">Rp {{ number_format($menu->price, 0, ',', '.') }}</strong>
                             </td>
-                            <td>{{ $menu->cook_minutes }} menit</td>
+                            <td>{{ $menu->cook_minutes }} mnt</td>
                             <td>{{ \Carbon\Carbon::parse($menu->added_at)->format('Y-m-d') }}</td>
                             <td>
                                 @if ($menu->is_spicy)
                                     <span class="pill-badge pill-spicy">🌶️ Pedas</span>
                                 @else
-                                    <span class="pill-badge pill-mild">Gurih / Manis</span>
+                                    <span class="pill-badge pill-mild">Gurih / Segar</span>
                                 @endif
                             </td>
                             <td>

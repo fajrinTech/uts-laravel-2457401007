@@ -6,7 +6,7 @@
 <div class="bistro-card" style="max-width: 740px; margin: 0 auto;">
     <div class="card-header-row">
         <div>
-            <div style="margin-bottom: 6px;">
+            <div style="margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
                 @if ($menu->category === 'Makanan Utama')
                     <span class="pill-badge pill-makanan">🍛 {{ $menu->category }}</span>
                 @elseif ($menu->category === 'Minuman')
@@ -16,9 +16,13 @@
                 @endif
 
                 @if ($menu->is_spicy)
-                    <span class="pill-badge pill-spicy" style="margin-left: 6px;">🌶️ Pedas</span>
+                    <span class="pill-badge pill-spicy">🌶️ Pedas</span>
                 @else
-                    <span class="pill-badge pill-mild" style="margin-left: 6px;">Gurih / Segar</span>
+                    <span class="pill-badge pill-mild">Gurih / Segar</span>
+                @endif
+
+                @if ($menu->is_best_seller)
+                    <span class="pill-badge pill-bestseller">⭐ Rekomendasi Chef / Favorit</span>
                 @endif
             </div>
             <h1 class="card-title" style="font-size: 1.7rem;">{{ $menu->name }}</h1>
@@ -42,6 +46,17 @@
     </div>
 
     <div style="border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); padding: 18px 0; margin-bottom: 24px;">
+        <div style="display: grid; grid-template-columns: 180px 1fr; gap: 12px; margin-bottom: 12px; font-size: 0.95rem;">
+            <span style="color: var(--text-muted); font-weight: 500;">Status Rekomendasi</span>
+            <span>
+                @if ($menu->is_best_seller)
+                    <strong style="color: #d97706;">⭐ Ya, Menu Best Seller Restoran</strong>
+                @else
+                    <span style="color: var(--text-muted);">Menu Reguler</span>
+                @endif
+            </span>
+        </div>
+
         <div style="display: grid; grid-template-columns: 180px 1fr; gap: 12px; margin-bottom: 12px; font-size: 0.95rem;">
             <span style="color: var(--text-muted); font-weight: 500;">Tanggal Ditambahkan</span>
             <strong>{{ \Carbon\Carbon::parse($menu->added_at)->translatedFormat('d F Y') }} ({{ \Carbon\Carbon::parse($menu->added_at)->format('Y-m-d') }})</strong>

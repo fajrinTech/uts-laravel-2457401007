@@ -40,6 +40,7 @@ class MenuController extends Controller
         ]);
 
         $validated['is_spicy'] = $request->boolean('is_spicy');
+        $validated['is_best_seller'] = $request->boolean('is_best_seller');
 
         Menu::create($validated);
 
@@ -79,6 +80,7 @@ class MenuController extends Controller
         ]);
 
         $validated['is_spicy'] = $request->boolean('is_spicy');
+        $validated['is_best_seller'] = $request->boolean('is_best_seller');
 
         $menu->update($validated);
 

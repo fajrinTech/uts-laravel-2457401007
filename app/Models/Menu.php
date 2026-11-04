@@ -16,6 +16,7 @@ class Menu extends Model
         'cook_minutes',
         'added_at',
         'is_spicy',
+        'is_best_seller',
         'description',
     ];
 
@@ -24,5 +25,6 @@ class Menu extends Model
         'cook_minutes' => 'integer',
         'added_at' => 'date',
         'is_spicy' => 'boolean',
+        'is_best_seller' => 'boolean',
     ];
 }

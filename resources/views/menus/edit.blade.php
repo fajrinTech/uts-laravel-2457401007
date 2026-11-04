@@ -63,11 +63,19 @@
             @enderror
         </div>
 
-        <div class="form-group" style="padding: 12px 16px; background-color: #fafaf9; border: 1px solid var(--border-soft); border-radius: 8px;">
-            <label class="checkbox-label">
-                <input type="checkbox" name="is_spicy" value="1" {{ old('is_spicy', $menu->is_spicy) ? 'checked' : '' }}>
-                <span>🌶️ Memiliki Cita Rasa Pedas</span>
-            </label>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px;">
+            <div style="padding: 12px 16px; background-color: #fafaf9; border: 1px solid var(--border-soft); border-radius: 8px;">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="is_spicy" value="1" {{ old('is_spicy', $menu->is_spicy) ? 'checked' : '' }}>
+                    <span>🌶️ Cita Rasa Pedas</span>
+                </label>
+            </div>
+            <div style="padding: 12px 16px; background-color: #fffbeb; border: 1px solid #fde68a; border-radius: 8px;">
+                <label class="checkbox-label" style="color: #92400e;">
+                    <input type="checkbox" name="is_best_seller" value="1" {{ old('is_best_seller', $menu->is_best_seller) ? 'checked' : '' }}>
+                    <span>⭐ Menu Best Seller</span>
+                </label>
+            </div>
         </div>
 
         <div class="form-group">
